@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FourgeAI LABS — Apps &amp; Games for Android, macOS &amp; Windows</title>
+<meta name="description" content="FourgeAI LABS (DevForge Pro) — independent apps and games forged in Surprise, Arizona: BPWatch, NeuroPath, PrismTune, HomeCast, Vanguard: Desertfall, Pumba Blaster and more.">
+<style>
+  :root{
+    --bg:#0c0e13; --bg2:#12151d; --card:#161a24; --card2:#1b202e;
+    --line:#262c3d; --text:#e8eaf0; --muted:#9aa3b5;
+    --faint:#6b7387; --forge:#ff8a3c; --forge2:#ffb03c; --teal:#39d0c4;
+    --radius:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+  a{color:var(--forge2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  header{position:sticky;top:0;z-index:10;background:rgba(12,14,19,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em;font-size:17px;color:var(--text)}
+  .brand:hover{text-decoration:none}
+  .brand .mark{width:30px;height:30px;flex:0 0 30px}
+  .brand span em{font-style:normal;color:var(--forge)}
+  .nav nav a{color:var(--muted);margin-left:18px;font-size:14px;font-weight:600}
+  .nav nav a:hover{color:var(--text);text-decoration:none}
+
+  .hero{position:relative;overflow:hidden;background:
+    radial-gradient(900px 420px at 85% -10%,rgba(255,138,60,.20),transparent 60%),
+    radial-gradient(700px 380px at 8% 110%,rgba(57,208,196,.12),transparent 60%),
+    linear-gradient(180deg,var(--bg2),var(--bg));
+    border-bottom:1px solid var(--line)}
+  .hero .wrap{padding:72px 20px 60px}
+  .kicker{color:var(--forge);font-weight:700;letter-spacing:.22em;font-size:12px;text-transform:uppercase}
+  h1{font-size:clamp(38px,6.5vw,64px);line-height:1.05;font-weight:900;letter-spacing:-.01em;margin:14px 0 16px}
+  h1 .grad{background:linear-gradient(92deg,var(--forge),var(--forge2) 55%,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lede{max-width:640px;color:var(--muted);font-size:clamp(16px,2.4vw,19px)}
+  .hero .cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:12px 20px;border-radius:999px;font-weight:700;font-size:15px;border:1px solid var(--line);color:var(--text);background:var(--card)}
+  .btn:hover{text-decoration:none;border-color:var(--forge)}
+  .btn.primary{background:linear-gradient(92deg,var(--forge),var(--forge2));color:#1a1206;border:none}
+  .stats{display:flex;gap:26px;flex-wrap:wrap;margin-top:38px;color:var(--muted);font-size:14px}
+  .stats b{display:block;color:var(--text);font-size:22px}
+
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin:34px 0 6px}
+  .chip{cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 16px;border-radius:999px;font-weight:700;font-size:14px}
+  .chip.active{background:var(--forge);border-color:var(--forge);color:#1a1206}
+
+  section{padding:26px 0 8px}
+  h2{font-size:26px;font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  h2 .dot{width:10px;height:10px;border-radius:50%;background:var(--forge)}
+  .sub{color:var(--muted);margin-bottom:20px;max-width:680px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px}
+  .card h3{font-size:20px;font-weight:800}
+  .card p{color:var(--muted);font-size:15px;flex:1}
+  .tags{display:flex;gap:8px;flex-wrap:wrap}
+  .tag{font-size:12px;font-weight:700;letter-spacing:.04em;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);text-transform:uppercase}
+  .tag.status{color:var(--teal);border-color:rgba(57,208,196,.4)}
+  .tag.hot{color:var(--forge2);border-color:rgba(255,176,60,.45)}
+  .card .links{font-size:14px;font-weight:700}
+
+  .lab{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin:10px 0 4px}
+  .lab ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px 22px}
+  .lab li{color:var(--muted);font-size:15px}
+  .lab li b{color:var(--text)}
+
+  .about{color:var(--muted);max-width:720px}
+  .about b{color:var(--text)}
+  footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;color:var(--faint);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  @media (max-width:560px){.nav nav{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="FourgeAI LABS home">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M10 38 L24 8 L38 38" stroke="#ff8a3c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16.5 27 H31.5" stroke="#39d0c4" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <span>FOURGE<em>AI</em> LABS</span>
+    </a>
+    <nav>
+      <a href="#android">Android</a>
+      <a href="#macos">macOS</a>
+      <a href="#windows">Windows</a>
+      <a href="#about">About</a>
+      <a href="https://github.com/fourgeailabs">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">DevForge Pro · Surprise, Arizona</div>
+    <h1>Apps &amp; games,<br><span class="grad">forged by hand.</span></h1>
+    <p class="lede">FourgeAI LABS is an independent studio building software that respects its users — health tools, learning apps, car-friendly media players, and one very stubborn open-world FPS set in the Arizona desert.</p>
+    <div class="cta">
+      <a class="btn primary" href="#android">Browse the forge</a>
+      <a class="btn" href="https://github.com/fourgeailabs">github.com/fourgeailabs</a>
+    </div>
+    <div class="stats">
+      <div><b>3</b>platforms</div>
+      <div><b>9+</b>apps &amp; games</div>
+      <div><b>100%</b>independent</div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="filters" role="group" aria-label="Filter by platform">
+    <button class="chip active" data-filter="all">Everything</button>
+    <button class="chip" data-filter="android">Android</button>
+    <button class="chip" data-filter="macos">macOS</button>
+    <button class="chip" data-filter="windows">Windows</button>
+  </div>
+
+  <section id="android" data-platform-section="android">
+    <h2><span class="dot"></span>Android</h2>
+    <p class="sub">Phone, watch, tablet and car — built with Kotlin and Jetpack Compose, tested on real hardware first.</p>
+    <div class="grid">
+
+      <article class="card" data-platform="android">
+        <h3>BPWatch</h3>
+        <p>A blood pressure and heart-health companion for your phone and Galaxy Watch — trends, history and gentle alerts, with your settings that survive every update.</p>
+        <div class="tags"><span class="tag">Android</span><span class="tag">Wear OS</span><span class="tag status">In development</span></div>
+        <div class="links"><a href="https://github.com/fourgeailabs/BPWatch">Source on GitHub →</a></div>
+      </article>
+
+      <article class="card" data-platform="android">
+        <h3>NeuroPath</h3>
+        <p>Learning adventures for kids with a private, on-device AI research assistant — real video and audio lessons, step-by-step guidance, and no cloud dependence.</p>
+        <div class="tags"><span class="tag">Android</span><span class="tag status">Internal testing · Google Play</span></div>
+      </article>
+
+      <article class="card" data-platform="android">
+        <h3>PrismTune</h3>
+        <p>Your Plex music library, rebuilt for the car. A driving-safe, audio-only player for Android and Android Automotive with moods, genres, downloads and similar-song radio.</p>
+        <div class="tags"><span class="tag">Android</span><span class="tag">Automotive</span><span class="tag status">Internal testing · Google Play</span><span class="tag hot">Open source · MIT</span></div>
+        <div class="links"><a href="https://github.com/fourgeailabs/PrismTune">Source on GitHub →</a></div>
+      </article>
+
+      <article class="card" data-platform="android">
+        <h3>HomeCast</h3>
+        <p>One beautiful all-in-one client for Plex, Audiobookshelf, Booklore and public-domain libraries — audiobooks, ebooks, music, movies and TV in a single glassy interface.</p>
+        <div class="tags"><span class="tag">Android</span><span class="tag status">Internal testing · Google Play</span></div>
+      </article>
+
+      <article class="card" data-platform="android">
+        <h3>Vanguard: Desertfall</h3>
+        <p>An open-world FPS liberation campaign across 15 real Arizona cities at true scale — 241 towers, a companion who watches your back, and a governor who has to go.</p>
+        <div class="tags"><span class="tag">Android</span><span class="tag">FPS</span><span class="tag status">Internal testing · Google Play</span></div>
+        <div class="links"><a href="https://github.com/fourgeailabs/VanguardDesertfall">Project page →</a></div>
+      </article>
+
+      <article class="card" data-platform="android">
+        <h3>AutoWebBrowser</h3>
+        <p>A safer way to browse in the car, designed from the ground up for Android Auto and driving-first interfaces.</p>
+        <div class="tags"><span class="tag">Android</span><span class="tag">Automotive</span><span class="tag status">In development</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="macos" data-platform-section="macos">
+    <h2><span class="dot"></span>macOS</h2>
+    <p class="sub">Native Mac software — including a game built to push a 2012 MacBook Air as hard as it can possibly go.</p>
+    <div class="grid">
+
+      <article class="card" data-platform="macos">
+        <h3>Pumba Blaster</h3>
+        <p>A native 3D desert arena shooter for Mac: waves of drones, explosive barrels, grenades and adaptive graphics that settle at a smooth frame rate on vintage hardware — no browser, no fuss, fully offline.</p>
+        <div class="tags"><span class="tag">macOS</span><span class="tag">Game</span><span class="tag hot">v1.0.1 out now</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="windows" data-platform-section="windows">
+    <h2><span class="dot"></span>Windows</h2>
+    <p class="sub">PC editions built with Godot — bigger screens, bigger explosions.</p>
+    <div class="grid">
+
+      <article class="card" data-platform="windows">
+        <h3>Vanguard: Desertfall — PC Edition</h3>
+        <p>The full Desertfall campaign on PC with enhanced graphics and uncapped scale, perfectly mirrored with the Android edition — every change lands on both, always.</p>
+        <div class="tags"><span class="tag">Windows</span><span class="tag">FPS</span><span class="tag status">In development</span></div>
+        <div class="links"><a href="https://github.com/fourgeailabs/VanguardDesertfall">Project page →</a></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>More from the lab</h2>
+    <p class="sub">Earlier experiments and tools from the forge — every one of them taught the next one something.</p>
+    <div class="lab">
+      <ul>
+        <li><b>DevForge</b> — developer toolkit · <a href="https://github.com/fourgeailabs/DevForge">GitHub</a></li>
+        <li><b>ChefAI</b> — AI cooking companion · <a href="https://github.com/fourgeailabs/ChefAI">GitHub</a></li>
+        <li><b>Nova-ReVamped</b> — a classic, revamped · <a href="https://github.com/fourgeailabs/Nova-ReVamped">GitHub</a></li>
+        <li><b>VortexVM</b> — virtual machine experiments · <a href="https://github.com/fourgeailabs/VortexVM">GitHub</a></li>
+        <li><b>MindfulEmotions</b> — mindful moments app · <a href="https://github.com/fourgeailabs/MindfulEmotions">GitHub</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2><span class="dot"></span>About the forge</h2>
+    <p class="about">FourgeAI LABS is the studio name of <b>Eric Collins</b>, a telecommunications professional and independent developer in Surprise, Arizona, building under the DevForge Pro banner. The rules here are simple: <b>no ads, no data harvesting, no dark patterns</b> — software that does its job and respects the person using it. When he isn't shipping apps, he's writing the science-fiction manuscript <b><i>The Vanguard Paradox</i></b> — the world Desertfall calls home.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 FourgeAI LABS · DevForge Pro. Forged in Surprise, Arizona.</div>
+    <div><a href="https://github.com/fourgeailabs">GitHub</a></div>
+  </div>
+</footer>
+
+<script>
+  const chips = document.querySelectorAll('.chip');
+  const sections = document.querySelectorAll('[data-platform-section]');
+  chips.forEach(chip => chip.addEventListener('click', () => {
+    chips.forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    const f = chip.dataset.filter;
+    sections.forEach(s => {
+      s.style.display = (f === 'all' || s.dataset.platformSection === f) ? '' : 'none';
+    });
+  }));
+</script>
+</body>
+</html>
