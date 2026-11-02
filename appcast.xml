@@ -6,13 +6,13 @@
     <description>Off the Menu — update feed</description>
     <language>en</language>
     <item>
-      <title>Off the Menu 1.2.3</title>
-      <pubDate>Mon, 02 Nov 2026 02:36:00 +0000</pubDate>
-      <sparkle:version>1.2.3</sparkle:version>
-      <sparkle:shortVersionString>1.2.3</sparkle:shortVersionString>
+      <title>Off the Menu 1.2.4</title>
+      <pubDate>Mon, 02 Nov 2026 03:09:14 +0000</pubDate>
+      <sparkle:version>1.2.4</sparkle:version>
+      <sparkle:shortVersionString>1.2.4</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
-      <description>The gore + predation release: bites instead of bullets, feeding frenzies, kill-streak tiers, difficulty levels — and the first self-updating build.</description>
-      <enclosure url="https://github.com/fourgeailabs/fourgeailabs.github.io/releases/download/v1.2.3/OffTheMenu-macOS.zip" length="96055758" type="application/zip" sparkle:edSignature="KqMWp8mxFmAsD7pBm8h3mExqxBmmXhOXllUH/8JbaSal5fiZYxSVK8ZKummW1MGA5tdz7dye/08Pwf7rI5BODg=="/>
+      <description>The packaging fix: 1.2.3's bundle had been edited after export, breaking its seal ("damaged" dialog). 1.2.4 ships byte-identical to its export seal, machine-verified; the update config moved into a bundled data file — same feed, same key. No gameplay changes.</description>
+      <enclosure url="https://github.com/fourgeailabs/fourgeailabs.github.io/releases/download/v1.2.4/OffTheMenu-macOS.zip" length="95204268" type="application/zip" sparkle:edSignature="GpArkaVPPDxANGy8E5OJXgYUkj4Kb7JVpwISWj76jGienZyS0/smsmSVNhdVo6sVfjtHbrU3XecWCd4VzPNfAA=="/>
     </item>
   </channel>
 </rss>
