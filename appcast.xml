@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Off the Menu</title>
+    <link>https://fourgeailabs.github.io/appcast.xml</link>
+    <description>Off the Menu — update feed</description>
+    <language>en</language>
+    <item>
+      <title>Off the Menu 1.2.3</title>
+      <pubDate>Mon, 02 Nov 2026 02:36:00 +0000</pubDate>
+      <sparkle:version>1.2.3</sparkle:version>
+      <sparkle:shortVersionString>1.2.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
+      <description>The gore + predation release: bites instead of bullets, feeding frenzies, kill-streak tiers, difficulty levels — and the first self-updating build.</description>
+      <enclosure url="https://github.com/fourgeailabs/fourgeailabs.github.io/releases/download/v1.2.3/OffTheMenu-macOS.zip" length="96055758" type="application/zip" sparkle:edSignature="KqMWp8mxFmAsD7pBm8h3mExqxBmmXhOXllUH/8JbaSal5fiZYxSVK8ZKummW1MGA5tdz7dye/08Pwf7rI5BODg=="/>
+    </item>
+  </channel>
+</rss>
