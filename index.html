@@ -54,7 +54,9 @@
   h2 .dot{width:10px;height:10px;border-radius:50%;background:var(--forge)}
   .sub{color:var(--muted);margin-bottom:20px;max-width:680px}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-  .card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px}
+  .card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:border-color .15s ease, transform .15s ease}
+  .card:hover{border-color:var(--forge);transform:translateY(-2px)}
+  .card .more{font-size:14px;font-weight:700;color:var(--forge2)}
   .card h3{font-size:20px;font-weight:800}
   .card p{color:var(--muted);font-size:15px;flex:1}
   .tags{display:flex;gap:8px;flex-wrap:wrap}
@@ -86,6 +88,17 @@
   .modal p b{color:var(--text)}
   .modal .mrow{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;justify-content:flex-end}
   .modal .btn.primary{background:linear-gradient(92deg,var(--forge),var(--forge2))}
+  .modal.detail{max-width:720px;border-color:var(--line);max-height:88vh;overflow-y:auto}
+  .modal.detail h3{font-size:24px;font-weight:800}
+  .modal.detail .dmeta{color:var(--faint);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-top:4px}
+  .modal.detail .dbody{color:var(--muted);font-size:15px;margin-top:14px}
+  .modal.detail .dbody p{margin-top:10px}
+  .modal.detail .dbody b{color:var(--text)}
+  .modal.detail ul{margin:10px 0 0 18px;color:var(--muted);font-size:15px}
+  .modal.detail ul b{color:var(--text)}
+  .modal.detail .shots{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .modal.detail .shots img{width:calc(33.33% - 7px);min-width:150px;flex:1;border-radius:10px;border:1px solid var(--line)}
+  .modal.detail .shots img.wide{width:100%;flex:none}
 </style>
 </head>
 <body>
@@ -140,49 +153,47 @@
     <p class="sub">Phone, watch, tablet and car — built with Kotlin and Jetpack Compose, tested on real hardware first.</p>
     <div class="grid">
 
-      <article class="card" data-platform="android">
+      <article class="card" data-app="bpwatch" tabindex="0" data-platform="android">
         <h3>BPWatch</h3>
         <p>A blood pressure and heart-health companion for your phone and Galaxy Watch — trends, history and gentle alerts, with your settings that survive every update.</p>
         <div class="tags"><span class="tag">Android</span><span class="tag">Wear OS</span><span class="tag status">In development</span></div>
         <div class="links"><a href="https://github.com/fourgeailabs/BPWatch">Source on GitHub →</a></div>
-        <div class="actions"><button class="btn dl" data-app="BPWatch" data-complete="false" data-dest="https://github.com/fourgeailabs/BPWatch" data-destlabel="Continue to GitHub" data-note="BPWatch is still in active development and has not been signed off as complete. There is no public release build yet — the button takes you to the source repository on GitHub.">Download</button></div>
+        <div class="more">Read more →</div>
       </article>
 
-      <article class="card" data-platform="android">
+      <article class="card" data-app="neuropath" tabindex="0" data-platform="android">
         <h3>NeuroPath</h3>
         <p>Learning adventures for kids with a private, on-device AI research assistant — real video and audio lessons, step-by-step guidance, and no cloud dependence.</p>
         <div class="tags"><span class="tag">Android</span><span class="tag status">Internal testing · Google Play</span></div>
-        <div class="actions"><button class="btn dl" data-app="NeuroPath" data-complete="false" data-dest="" data-destlabel="" data-note="NeuroPath is still in development and has not been signed off as complete. It is currently available only to invited internal testers on Google Play — there is no public download yet.">Download</button></div>
+        <div class="more">Read more →</div>
       </article>
 
-      <article class="card" data-platform="android">
+      <article class="card" data-app="prismtune" tabindex="0" data-platform="android">
         <h3>PrismTune</h3>
         <p>Your Plex music library, rebuilt for the car. A driving-safe, audio-only player for Android and Android Automotive with moods, genres, downloads and similar-song radio.</p>
-        <div class="tags"><span class="tag">Android</span><span class="tag">Automotive</span><span class="tag status">Internal testing · Google Play</span><span class="tag hot">Open source · MIT</span></div>
-        <div class="links"><a href="https://github.com/fourgeailabs/PrismTune">Source on GitHub →</a></div>
-        <div class="actions"><button class="btn dl" data-app="PrismTune" data-complete="false" data-dest="https://github.com/fourgeailabs/PrismTune" data-destlabel="Continue to GitHub" data-note="PrismTune is still in development and has not been signed off as complete. It is in internal testing on Google Play; the full source is open on GitHub under the MIT license.">Download</button></div>
+        <div class="tags"><span class="tag">Android</span><span class="tag">Automotive</span><span class="tag status">Internal testing · Google Play</span><span class="tag hot">Plex · In-car</span></div>
+        <div class="more">Read more →</div>
       </article>
 
-      <article class="card" data-platform="android">
+      <article class="card" data-app="homecast" tabindex="0" data-platform="android">
         <h3>HomeCast</h3>
         <p>One beautiful all-in-one client for Plex, Audiobookshelf, Booklore and public-domain libraries — audiobooks, ebooks, music, movies and TV in a single glassy interface.</p>
         <div class="tags"><span class="tag">Android</span><span class="tag status">Internal testing · Google Play</span></div>
-        <div class="actions"><button class="btn dl" data-app="HomeCast" data-complete="false" data-dest="" data-destlabel="" data-note="HomeCast is still in development and has not been signed off as complete. It is currently available only to invited internal testers on Google Play — there is no public download yet.">Download</button></div>
+        <div class="more">Read more →</div>
       </article>
 
-      <article class="card" data-platform="android">
+      <article class="card" data-app="desertfall" tabindex="0" data-platform="android">
         <h3>Vanguard: Desertfall</h3>
         <p>An open-world FPS liberation campaign across 15 real Arizona cities at true scale — 241 towers, a companion who watches your back, and a governor who has to go.</p>
         <div class="tags"><span class="tag">Android</span><span class="tag">FPS</span><span class="tag status">Internal testing · Google Play</span></div>
-        <div class="links"><a href="https://github.com/fourgeailabs/VanguardDesertfall">Project page →</a></div>
-        <div class="actions"><button class="btn dl" data-app="Vanguard: Desertfall" data-complete="false" data-dest="https://github.com/fourgeailabs/VanguardDesertfall" data-destlabel="Continue to project page" data-note="Vanguard: Desertfall is still in development and has not been signed off as complete. It is in internal testing on Google Play; the button takes you to the public project page.">Download</button></div>
+        <div class="more">Read more →</div>
       </article>
 
-      <article class="card" data-platform="android">
+      <article class="card" data-app="autowebbrowser" tabindex="0" data-platform="android">
         <h3>AutoWebBrowser</h3>
         <p>A safer way to browse in the car, designed from the ground up for Android Auto and driving-first interfaces.</p>
         <div class="tags"><span class="tag">Android</span><span class="tag">Automotive</span><span class="tag status">In development</span></div>
-        <div class="actions"><button class="btn dl" data-app="AutoWebBrowser" data-complete="false" data-dest="" data-destlabel="" data-note="AutoWebBrowser is still in development and has not been signed off as complete. No build is available for download yet.">Download</button></div>
+        <div class="more">Read more →</div>
       </article>
 
     </div>
@@ -193,11 +204,11 @@
     <p class="sub">Native Mac software — including a game built to push a 2012 MacBook Air as hard as it can possibly go.</p>
     <div class="grid">
 
-      <article class="card" data-platform="macos">
+      <article class="card" data-app="offthemenu" tabindex="0" data-platform="macos">
         <h3>Off the Menu</h3>
         <p>A gory indie savanna shooter for Mac. Play as Jaxson — a warthog who was voted Easiest Meal on the Savanna three years running, until he found a blaster in a crate marked DO NOT ARM THE WILDLIFE. Now the predators aren't hunting lunch. They're hunting the story. Classic and isometric views, hand-painted detail, fully offline — built to push a 2012 MacBook Air as hard as it can go.</p>
         <div class="tags"><span class="tag">macOS</span><span class="tag">Game</span><span class="tag hot">In development</span></div>
-        <div class="actions"><button class="btn dl" data-app="Off the Menu" data-complete="false" data-dest="https://github.com/fourgeailabs/fourgeailabs.github.io/releases/download/v2.0.1/OffTheMenu-macOS.zip" data-destlabel="GitHub release — v2.0.1" data-note="Off the Menu is still in development and has not been signed off as complete. The current public build is v2.0.1. First install is manual (macOS will ask you to approve it once in Privacy & Security) — after that, the game updates itself automatically.">Download</button></div>
+        <div class="more">Read more →</div>
       </article>
 
     </div>
@@ -208,12 +219,11 @@
     <p class="sub">PC editions built with Godot — bigger screens, bigger explosions.</p>
     <div class="grid">
 
-      <article class="card" data-platform="windows">
+      <article class="card" data-app="desertfallpc" tabindex="0" data-platform="windows">
         <h3>Vanguard: Desertfall — PC Edition</h3>
         <p>The full Desertfall campaign on PC with enhanced graphics and uncapped scale, perfectly mirrored with the Android edition — every change lands on both, always.</p>
         <div class="tags"><span class="tag">Windows</span><span class="tag">FPS</span><span class="tag status">In development</span></div>
-        <div class="links"><a href="https://github.com/fourgeailabs/VanguardDesertfall">Project page →</a></div>
-        <div class="actions"><button class="btn dl" data-app="Vanguard: Desertfall — PC Edition" data-complete="false" data-dest="https://github.com/fourgeailabs/VanguardDesertfall" data-destlabel="Continue to project page" data-note="The PC edition of Vanguard: Desertfall is still in development and has not been signed off as complete. No public PC build is available yet — the button takes you to the public project page.">Download</button></div>
+        <div class="more">Read more →</div>
       </article>
 
     </div>
@@ -224,10 +234,10 @@
     <p class="sub">Earlier experiments and tools from the forge — every one of them taught the next one something.</p>
     <div class="lab">
       <ul>
-        <li><b>DevForge</b> — developer toolkit · <a href="https://github.com/fourgeailabs/DevForge">GitHub</a></li>
-        <li><b>ChefAI</b> — AI cooking companion · <a href="https://github.com/fourgeailabs/ChefAI">GitHub</a></li>
-        <li><b>Nova-ReVamped</b> — a classic, revamped · <a href="https://github.com/fourgeailabs/Nova-ReVamped">GitHub</a></li>
-        <li><b>VortexVM</b> — virtual machine experiments · <a href="https://github.com/fourgeailabs/VortexVM">GitHub</a></li>
+        <li><b>DevForge</b> — developer toolkit</li>
+        <li><b>ChefAI</b> — AI cooking companion</li>
+        <li><b>Nova-ReVamped</b> — a classic, revamped</li>
+        <li><b>VortexVM</b> — virtual machine experiments</li>
         <li><b>MindfulEmotions</b> — mindful moments app · <a href="https://github.com/fourgeailabs/MindfulEmotions">GitHub</a></li>
       </ul>
     </div>
@@ -247,15 +257,16 @@
   </div>
 </footer>
 
-<div class="overlay" id="warnOverlay" role="dialog" aria-modal="true" aria-labelledby="warnTitle">
-  <div class="modal">
-    <div class="warnhead"><span class="warnicon">⚠️</span><span id="warnTitle">Still in development</span></div>
-    <p id="warnBody"></p>
-    <div class="mrow">
-      <button class="btn" id="warnCancel">Go back</button>
-      <button class="btn primary" id="warnContinue">I understand — continue</button>
+<div class="overlay" id="detailOverlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+  <div class="modal detail">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+      <div><h3 id="detailTitle"></h3><div class="dmeta" id="detailMeta"></div></div>
+      <button class="btn" id="detailClose" style="padding:6px 14px">✕</button>
     </div>
+    <div class="shots" id="detailShots"></div>
+    <div class="dbody" id="detailBody"></div>
   </div>
+</div>
 </div>
 
 <script>
@@ -271,36 +282,66 @@
     });
   }));
 
-  // Download warning: any app/game not signed off as complete (data-complete="false")
-  // shows the in-development warning before anything downloads.
-  const overlay = document.getElementById('warnOverlay');
-  const warnBody = document.getElementById('warnBody');
-  const warnContinue = document.getElementById('warnContinue');
-  const warnCancel = document.getElementById('warnCancel');
-  let pendingDest = '';
-
-  function closeWarn(){ overlay.classList.remove('open'); pendingDest = ''; }
-  warnCancel.addEventListener('click', closeWarn);
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeWarn(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWarn(); });
-  warnContinue.addEventListener('click', () => {
-    const dest = pendingDest;
-    closeWarn();
-    if (dest) window.location.href = dest;
-  });
-
-  document.querySelectorAll('.btn.dl').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const dest = btn.dataset.dest || '';
-      if (btn.dataset.complete === 'true') {
-        if (dest) window.location.href = dest;
-        return;
-      }
-      pendingDest = dest;
-      warnBody.innerHTML = '<b>' + btn.dataset.app + '</b> — ' + btn.dataset.note;
-      warnContinue.textContent = dest ? (btn.dataset.destlabel || 'I understand — continue') : 'Got it';
-      overlay.classList.add('open');
-    });
+  // Clickable cards: each opens a clean, pretty detail page (README-style)
+  // with screenshots where available. No downloads for now — purchasing
+  // arrives when titles list on itch.io.
+  const DETAILS = {
+    bpwatch: {title:'BPWatch', meta:'Android · Wear OS · Health',
+      body:`<p><b>BPWatch</b> is a blood pressure and heart-health companion for your phone and your Galaxy Watch. Log readings on the watch or the phone, watch your trends over days and weeks, and get gentle alerts when something drifts out of your comfort zone.</p>
+      <ul><li><b>Phone + watch, in sync</b> — readings, history and trends on both</li><li><b>Heart-rate alerts</b> with thresholds you control</li><li><b>Your settings stick</b> — BP and heart-rate preferences survive every update, no reprogramming</li><li><b>Private by design</b> — your health data is yours</li></ul>
+      <p><b>Free, forever.</b> Health tools shouldn't have a paywall between a person and their own body, so BPWatch's source is public on GitHub and the app is free to download and use.</p>`},
+    neuropath: {title:'NeuroPath', meta:'Android · Kids learning · On-device AI',
+      body:`<p><b>NeuroPath</b> turns learning into adventures for kids, with a private AI research assistant that lives entirely on the device — a small local model, no cloud, no accounts watching along.</p>
+      <ul><li><b>Real lessons</b> — video and audio built into grade-band course loads</li><li><b>Step-by-Step Guide</b> — the assistant walks through problems instead of blurting answers</li><li><b>Location-aware standards</b> — GPS and ZIP map to your state's framework</li><li><b>Fully on-device</b> — the AI runs locally and works offline</li></ul>
+      <p>Currently in internal testing on Google Play.</p>`},
+    prismtune: {title:'PrismTune', meta:'Android · Android Automotive · Plex music',
+      shots:['assets/prismtune-now-playing.png','assets/prismtune-home.png','assets/prismtune-library.png'],
+      body:`<p><b>PrismTune</b> is your Plex music library, rebuilt for the car: a driving-safe, audio-only player for Android phones and Android Automotive dashboards.</p>
+      <ul><li><b>Home | Library | Moods | Genres | Search | Downloads | Settings</b> — big, glanceable, voice-friendly</li><li><b>Moods &amp; genres</b> for one-tap driving soundtracks</li><li><b>Downloads</b> for dead-zone roads</li><li><b>Similar songs, albums and artists</b> radio from whatever's playing</li></ul>
+      <p>Currently in internal testing on Google Play, on phone and in the car.</p>`},
+    homecast: {title:'HomeCast', meta:'Android · All-in-one media client',
+      body:`<p><b>HomeCast</b> is one beautiful client for all your libraries — Plex, Audiobookshelf, Booklore and public-domain collections — in a single glassy, iOS-inspired interface.</p>
+      <ul><li><b>Audiobooks, ebooks, music, movies and TV</b> in one app</li><li><b>Real playback sessions</b> that pick up where you left off</li><li><b>A proper e-reader</b> with smooth page turns</li><li><b>No AI, no noise</b> — just your media, presented beautifully</li></ul>
+      <p>Currently in internal testing on Google Play.</p>`},
+    desertfall: {title:'Vanguard: Desertfall', meta:'Android · Open-world FPS',
+      body:`<p><b>Vanguard: Desertfall</b> is a mature open-world FPS liberation campaign across <b>15 real Arizona cities at true scale</b> — the whole map open from the first minute, every city liberatable in any order.</p>
+      <ul><li><b>241 towers</b> to take back, city by city</li><li><b>Ricky</b> — a phone-company care rep who'd rather be anywhere else — and <b>Marie Voss</b>, the companion who watches his back</li><li><b>Governor Craig Halloran</b> has to go</li><li><b>Real streets, real terrain</b> — built from true map and elevation data, down to the street the safehouse sits on</li></ul>
+      <p>Currently in internal testing on Google Play. The PC Edition is mirrored change-for-change — see its card under Windows.</p>`},
+    autowebbrowser: {title:'AutoWebBrowser', meta:'Android · Android Auto · In development',
+      body:`<p><b>AutoWebBrowser</b> is a safer way to browse in the car, designed from the ground up for Android Auto and driving-first interfaces — the web, minus the parts that don't belong behind a wheel.</p>
+      <p>In active development.</p>`},
+    offthemenu: {title:'Off the Menu', meta:'macOS · Indie game',
+      shots:['assets/off-the-menu.jpg'], wide:true,
+      body:`<p>A gory indie savanna shooter for Mac. Play as <b>Jaxson</b> — a warthog voted Easiest Meal on the Savanna three years running, until he found a blaster in a crate marked DO NOT ARM THE WILDLIFE. Now the predators aren't hunting lunch. They're hunting the story.</p>
+      <ul><li><b>Every enemy hunts with its mouth</b> — lion pounce-bites, snake constrictions, hawk tear-swoops, hippo chomps. No ranged enemies, ever</li><li><b>Blood-bath kills</b>, feeding frenzies, and damage you can see on Jaxson himself</li><li><b>Classic and isometric views</b>, hand-built stylized 3D</li><li><b>Fully offline</b>, with automatic updates — and it pushes a 2012 MacBook Air as hard as it can go</li></ul>
+      <p>In development. Purchasing opens when the game lists on itch.io.</p>`},
+    desertfallpc: {title:'Vanguard: Desertfall — PC Edition', meta:'Windows · Open-world FPS · Godot',
+      body:`<p>The full Desertfall campaign on PC: enhanced graphics, uncapped scale, keyboard-and-mouse and controller — <b>perfectly mirrored</b> with the Android edition. Every change lands on both, always.</p>
+      <ul><li><b>True-scale Arizona</b> — 15 cities, real streets, real elevation</li><li><b>Enhanced graphics by default</b>; size is never the constraint</li><li>Built in Godot 4, tuned for big screens and bigger explosions</li></ul>
+      <p>In development. Purchasing opens when the game lists on itch.io.</p>`}
+  };
+  const dOverlay = document.getElementById('detailOverlay');
+  const dTitle = document.getElementById('detailTitle');
+  const dMeta = document.getElementById('detailMeta');
+  const dBody = document.getElementById('detailBody');
+  const dShots = document.getElementById('detailShots');
+  function closeDetail(){ dOverlay.classList.remove('open'); }
+  document.getElementById('detailClose').addEventListener('click', closeDetail);
+  dOverlay.addEventListener('click', e => { if (e.target === dOverlay) closeDetail(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+  document.querySelectorAll('.card[data-app]').forEach(card => {
+    const open = () => {
+      const d = DETAILS[card.dataset.app];
+      if (!d) return;
+      dTitle.textContent = d.title;
+      dMeta.textContent = d.meta;
+      dBody.innerHTML = d.body;
+      dShots.innerHTML = (d.shots || []).map(s => '<img src="' + s + '" alt="' + d.title + ' screenshot" loading="lazy"' + (d.wide ? ' class="wide"' : '') + '>').join('');
+      dShots.style.display = (d.shots && d.shots.length) ? '' : 'none';
+      dOverlay.classList.add('open');
+    };
+    card.addEventListener('click', e => { if (e.target.closest('a')) return; open(); });
+    card.addEventListener('keydown', e => { if (e.key === 'Enter') open(); });
   });
 </script>
 </body>
