@@ -270,6 +270,21 @@
     </div>
   </section>
 
+  <section id="fourgeos" data-platform-section="windows">
+    <h2><span class="dot"></span>FourgeOS</h2>
+    <p class="sub">Not an app — a whole gaming operating system, built from the Linux kernel up.</p>
+    <div class="grid">
+
+      <article class="card" data-app="fourgeos" tabindex="0" data-platform="windows">
+        <h3>FourgeOS</h3>
+        <p>A gaming OS for PCs and PC handhelds — one universal installer that auto-detects your hardware and boots straight into a console-style Steam session, with emulation built in and your saves kept local.</p>
+        <div class="tags"><span class="tag">PC</span><span class="tag">Handhelds</span><span class="tag">Gaming OS</span><span class="tag status">In development</span><span class="tag hot">v0.3.0</span></div>
+        <div class="more">Read more →</div>
+      </article>
+
+    </div>
+  </section>
+
   <section>
     <h2><span class="dot"></span>More from the lab</h2>
     <p class="sub">Earlier experiments and tools from the forge — every one of them taught the next one something.</p>
@@ -363,7 +378,11 @@
     desertfallpc: {title:'Vanguard: Desertfall — PC Edition', meta:'Windows · Open-world FPS · Godot',
       body:`<p>The full Desertfall campaign on PC: enhanced graphics, uncapped scale, keyboard-and-mouse and controller — <b>perfectly mirrored</b> with the Android edition. Every change lands on both, always.</p>
       <ul><li><b>True-scale Arizona</b> — 15 cities, real streets, real elevation</li><li><b>Enhanced graphics by default</b>; size is never the constraint</li><li>Built in Godot 4, tuned for big screens and bigger explosions</li></ul>
-      <p>In development. Purchasing opens when the game lists on itch.io.</p>`}
+      <p>In development. Purchasing opens when the game lists on itch.io.</p>`},
+    fourgeos: {title:'FourgeOS', meta:'PC · Handhelds · Gaming OS · v0.3.0',
+      body:`<p>A full gaming operating system built from the Linux kernel up — for Windows PCs (Proton), native Linux games, and console emulation. <b>One universal installer</b>: it auto-detects your hardware and sets itself up, no separate editions.</p>
+      <ul><li><b>Every PC handheld, not just one</b> — Legion Go, Steam Deck, ROG Ally and Ally X, MSI Claw, GPD and AYANEO are recognised automatically, with a generic handheld profile for anything else; desktops and NVIDIA eGPUs too</li><li><b>Console-style by default</b> — boots into a Gamescope Steam session, with EmulationStation-DE for retro libraries and a full Plasma desktop one step away</li><li><b>FourgeOS Versions (new in 0.3.0)</b> — the last 5 versions are kept automatically; jump back to any of them in one reboot, as easily as upgrading. Your home folder — games, saves, files — is never rolled back, downgrades are never blocked, and older versions can still receive security fixes</li><li><b>An animated FourgeOS boot</b> and FourgeOS identity throughout — no distro branding anywhere you can see</li><li><b>Local-only saves</b>, snapshot recovery, and gaming-tuned performance (zen kernel, zram, IO scheduling) out of the box</li></ul>
+      <p>In active development. Every release is proven end-to-end in automated testing — real installs, 10+ upgrade/downgrade cycles, power-cut interruption tests and firmware boots of rolled-back systems — before it ships.</p>`}
   };
   const dOverlay = document.getElementById('detailOverlay');
   const dTitle = document.getElementById('detailTitle');
